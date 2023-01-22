@@ -35,7 +35,11 @@ namespace SIUIFTS.Controllers
             }
 
             var alumno = await _contexto.Alumnos
+                .Include(a => a.Inscripciones)
+                    .ThenInclude(i => i.Materia)
+                .AsNoTracking() //mejora el rendimiento en casos en los que no se actualizarán las entidades devueltas en la duración del contexto actual
                 .FirstOrDefaultAsync(m => m.AlumnoID == id);
+
             if (alumno == null)
             {
                 return NotFound();
@@ -51,8 +55,6 @@ namespace SIUIFTS.Controllers
         }
 
         // POST: Alumnos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AlumnoID,Apellido,Nombre,FechaDeInscripcion")] Alumno alumno)
@@ -83,8 +85,6 @@ namespace SIUIFTS.Controllers
         }
 
         // POST: Alumnos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AlumnoID,Apellido,Nombre,FechaDeInscripcion")] Alumno alumno)

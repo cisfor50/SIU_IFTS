@@ -15,6 +15,6 @@ namespace SIUIFTS.Models
 
         //Propiedad de navegación que contiene referencias a muchas entidades relacionadas.
         //Cuando se usa ICollection<T>, EF crea una colección HashSet<T> de forma predeterminada.
-        public ICollection<Inscripcion> Incripciones { get; set; }
+        public ICollection<Inscripcion> Inscripciones { get; set; }
     }
 }

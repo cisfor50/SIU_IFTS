@@ -17,7 +17,7 @@ namespace SIUIFTS.Models
     {
         public int InscripcionID { get; set; }
         public int MateriaID { get; set; }
-        public int EstudianteID { get; set; }
+        public int AlumnoID { get; set; }
         //Nulleable porque puede que no se le haya asignado ninguna materia
         public int? Nota { get; set; }
         public Materia Materia { get; set; }

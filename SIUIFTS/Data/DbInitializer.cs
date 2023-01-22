@@ -52,18 +52,18 @@ namespace SIUIFTS.Data
 
             var inscripciones = new Inscripcion[]
             {
-            new Inscripcion{EstudianteID=1,MateriaID=1000,Nota=4},
-            new Inscripcion{EstudianteID=1,MateriaID=1001,Nota=7},
-            new Inscripcion{EstudianteID=1,MateriaID=1002,Nota=7},
-            new Inscripcion{EstudianteID=2,MateriaID=1001,Nota=9},
-            new Inscripcion{EstudianteID=2,MateriaID=1002,Nota=2},
-            new Inscripcion{EstudianteID=2,MateriaID=1003,Nota=5},
-            new Inscripcion{EstudianteID=3,MateriaID=1000},
-            new Inscripcion{EstudianteID=4,MateriaID=1001},
-            new Inscripcion{EstudianteID=4,MateriaID=1006,Nota=3},
-            new Inscripcion{EstudianteID=5,MateriaID=1000,Nota=5},
-            new Inscripcion{EstudianteID=6,MateriaID=1005},
-            new Inscripcion{EstudianteID=7,MateriaID=1004,Nota=10},
+            new Inscripcion{AlumnoID=1,MateriaID=1000,Nota=4},
+            new Inscripcion{AlumnoID=1,MateriaID=1001,Nota=7},
+            new Inscripcion{AlumnoID=1,MateriaID=1002,Nota=7},
+            new Inscripcion{AlumnoID=2,MateriaID=1001,Nota=9},
+            new Inscripcion{AlumnoID=2,MateriaID=1002,Nota=2},
+            new Inscripcion{AlumnoID=2,MateriaID=1003,Nota=5},
+            new Inscripcion{AlumnoID=3,MateriaID=1000},
+            new Inscripcion{AlumnoID=4,MateriaID=1001},
+            new Inscripcion{AlumnoID=4,MateriaID=1006,Nota=3},
+            new Inscripcion{AlumnoID=5,MateriaID=1000,Nota=5},
+            new Inscripcion{AlumnoID=6,MateriaID=1005},
+            new Inscripcion{AlumnoID=7,MateriaID=1004,Nota=10},
             };
             foreach (Inscripcion i in inscripciones)
             {
