@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -45,7 +46,7 @@ namespace SIUIFTS.Controllers
             return View(inscripcion);
         }
 
-        // GET: Inscripciones/Create
+        // GET: Inscripciones/Create        
         public IActionResult Create()
         {
             ViewData["MateriaID"] = new SelectList(_contexto.Materias, "MateriaID", "MateriaID");

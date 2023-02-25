@@ -12,9 +12,10 @@ namespace SIUIFTS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MateriaID { get; set; }
         public string NombreMateria { get; set; }
-       // public int Credits { get; set; }
 
         //relación de uno a muchos
+        //muestra los alumnos asignados a ese curso
         public ICollection<Inscripcion> Inscripciones { get; set; }
+        public ICollection<Profesor> Profesores { get; set; }
     }
 }

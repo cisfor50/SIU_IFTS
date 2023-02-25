@@ -20,11 +20,13 @@ namespace SIUIFTS.Data
         public DbSet<Materia> Materias { get; set; }
         public DbSet<Inscripcion> Inscripciones { get; set; }
         public DbSet<Alumno> Alumnos { get; set; }
+        public DbSet<Profesor> Profesores { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Materia>().ToTable("Materias");
             modelBuilder.Entity<Inscripcion>().ToTable("Inscripciones");
             modelBuilder.Entity<Alumno>().ToTable("Alumnos");
+            modelBuilder.Entity<Profesor>().ToTable("Profesores");
             base.OnModelCreating(modelBuilder);
         }
     }
