@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,36 +12,51 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SIUIFTS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <div class="navbar-header">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                            </div>
-                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item">@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("Materias", "Index", "Materias", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("Profesores", "Index", "Profesores", null, new { @class = "nav-link" })</li>
-                                    <li class="nav-item">@Html.ActionLink("Estudiantes", "Index", "Alumnos", null, new { @class = "nav-link" })</li>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SIUIFTS</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <div class="navbar-header">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                </div>
+                                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Materias", "Index", "Materias", null, new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Profesores", "Index", "Profesores", null, new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Estudiantes", "Index", "Alumnos", null, new { @class = "nav-link" })</li>
 
-                                </ul>
-                            </div>
-</ul>
-                    <partial name="_LoginPartial" />
+                                    </ul>
+                                </div>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        }
+        else
+        {
+
+    <ul class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
+        @*<li class="">*@
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registrate</a>
+        @*</li>*@
+        @*<li class="">*@
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Iniciá sesión</a>
+        @*</li>*@
+    </ul>
+         }
+        </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -47,7 +65,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - SIU - IFTS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - SIU - IFTS
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

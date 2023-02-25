@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SIUIFTS.Data;
+using SIUIFTS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,8 +58,8 @@ namespace SIUIFTS
 
             app.UseRouting();
 
-           // app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

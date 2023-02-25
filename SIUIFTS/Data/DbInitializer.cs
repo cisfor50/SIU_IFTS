@@ -37,13 +37,13 @@ namespace SIUIFTS.Data
 
             var materias = new Materia[]
             {
-            new Materia{MateriaID=1000,NombreMateria="PP1"},
-            new Materia{MateriaID=1001,NombreMateria="Inglés"},
-            new Materia{MateriaID=1002,NombreMateria="Diagramación Lógica"},
-            new Materia{MateriaID=1003,NombreMateria="Estructura de Datos"},
-            new Materia{MateriaID=1004,NombreMateria="Arquitectura de Computadoras"},
-            new Materia{MateriaID=1005,NombreMateria="Base de Datos"},
-            new Materia{MateriaID=1006,NombreMateria="Ingeniería de Software"}
+            new Materia{MateriaID=1000,NombreMateria="PP1",Turno="Mañana"},
+            new Materia{MateriaID=1001,NombreMateria="Inglés",Turno="Tarde"},
+            new Materia{MateriaID=1002,NombreMateria="Diagramación Lógica",Turno="Noche"},
+            new Materia{MateriaID=1003,NombreMateria="Estructura de Datos",Turno="Noche"},
+            new Materia{MateriaID=1004,NombreMateria="Arquitectura de Computadoras",Turno="Mañana"},
+            new Materia{MateriaID=1005,NombreMateria="Base de Datos",Turno="Tarde"},
+            new Materia{MateriaID=1006,NombreMateria="Ingeniería de Software",Turno="Tarde"}
             };
             foreach (Materia m in materias)
             {
