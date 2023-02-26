@@ -4,14 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Listado de profesores</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Alta de nuevo profesor</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                DNI
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apellido)
             </th>
@@ -19,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaDeContratacion)
+                Fecha de contratación
             </th>
             <th></th>
         </tr>
@@ -27,6 +30,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfesorID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
@@ -37,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.FechaDeContratacion)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProfesorID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProfesorID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProfesorID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProfesorID" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProfesorID" class="btn btn-info">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProfesorID" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
 }

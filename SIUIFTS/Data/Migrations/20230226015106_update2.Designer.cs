@@ -3,21 +3,38 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SIUIFTS.Data;
 
 namespace SIUIFTS.Data.Migrations
 {
     [DbContext(typeof(SIUIFTSContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230226015106_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("MateriaProfesor", b =>
+                {
+                    b.Property<int>("MateriasMateriaID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfesoresProfesorID")
+                        .HasColumnType("int");
+
+                    b.HasKey("MateriasMateriaID", "ProfesoresProfesorID");
+
+                    b.HasIndex("ProfesoresProfesorID");
+
+                    b.ToTable("MateriaProfesor");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -271,18 +288,10 @@ namespace SIUIFTS.Data.Migrations
                     b.Property<string>("NombreMateria")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Profesor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProfesorID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Turno")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MateriaID");
-
-                    b.HasIndex("ProfesorID");
 
                     b.ToTable("Materias");
                 });
@@ -304,6 +313,21 @@ namespace SIUIFTS.Data.Migrations
                     b.HasKey("ProfesorID");
 
                     b.ToTable("Profesores");
+                });
+
+            modelBuilder.Entity("MateriaProfesor", b =>
+                {
+                    b.HasOne("SIUIFTS.Models.Materia", null)
+                        .WithMany()
+                        .HasForeignKey("MateriasMateriaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SIUIFTS.Models.Profesor", null)
+                        .WithMany()
+                        .HasForeignKey("ProfesoresProfesorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -376,13 +400,6 @@ namespace SIUIFTS.Data.Migrations
                     b.Navigation("Materia");
                 });
 
-            modelBuilder.Entity("SIUIFTS.Models.Materia", b =>
-                {
-                    b.HasOne("SIUIFTS.Models.Profesor", null)
-                        .WithMany("Materias")
-                        .HasForeignKey("ProfesorID");
-                });
-
             modelBuilder.Entity("SIUIFTS.Models.Alumno", b =>
                 {
                     b.Navigation("Inscripciones");
@@ -391,11 +408,6 @@ namespace SIUIFTS.Data.Migrations
             modelBuilder.Entity("SIUIFTS.Models.Materia", b =>
                 {
                     b.Navigation("Inscripciones");
-                });
-
-            modelBuilder.Entity("SIUIFTS.Models.Profesor", b =>
-                {
-                    b.Navigation("Materias");
                 });
 #pragma warning restore 612, 618
         }

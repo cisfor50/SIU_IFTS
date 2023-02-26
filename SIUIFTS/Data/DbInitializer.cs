@@ -53,18 +53,10 @@ namespace SIUIFTS.Data
 
             var inscripciones = new Inscripcion[]
             {
-            new Inscripcion{AlumnoID=1,MateriaID=1000},
-            new Inscripcion{AlumnoID=1,MateriaID=1001},
+            new Inscripcion{AlumnoID=3412342,MateriaID=1000,Nota=10},
+            new Inscripcion{AlumnoID=1456744,MateriaID=1001,Nota=4},
             new Inscripcion{AlumnoID=1,MateriaID=1002},
-            new Inscripcion{AlumnoID=2,MateriaID=1001},
-            new Inscripcion{AlumnoID=2,MateriaID=1002},
-            new Inscripcion{AlumnoID=3,MateriaID=1000},
-            new Inscripcion{AlumnoID=2,MateriaID=1003},
-            new Inscripcion{AlumnoID=4,MateriaID=1001},
-            new Inscripcion{AlumnoID=4,MateriaID=1006},
-            new Inscripcion{AlumnoID=5,MateriaID=1000},
-            new Inscripcion{AlumnoID=6,MateriaID=1005},
-            new Inscripcion{AlumnoID=7,MateriaID=1004},
+            new Inscripcion{AlumnoID=894534,MateriaID=1001},
             };
             foreach (Inscripcion i in inscripciones)
             {

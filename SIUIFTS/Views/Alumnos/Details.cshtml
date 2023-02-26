@@ -4,8 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
+<h2>Detalle</h2>
+<br />
+<br />
 <div>
     <h4>Alumno</h4>
     <hr />
@@ -34,8 +35,8 @@
         <dd class="col-sm-10">
             <table class="table">
                 <tr>
-                    <th>Course Title</th>
-                    <th>Grade</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
                 </tr>
                 @foreach (var item in Model.Inscripciones)
                 {
@@ -53,6 +54,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.AlumnoID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.AlumnoID" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
 </div>

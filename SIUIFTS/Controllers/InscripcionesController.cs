@@ -11,6 +11,7 @@ using SIUIFTS.Models;
 
 namespace SIUIFTS.Controllers
 {
+    [Authorize]
     public class InscripcionesController : Controller
     {
         private readonly SIUIFTSContext _contexto;

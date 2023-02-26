@@ -16,6 +16,7 @@ namespace SIUIFTS.Models
         //relación de uno a muchos
         //muestra los alumnos asignados a ese curso
         public ICollection<Inscripcion> Inscripciones { get; set; }
-        public ICollection<Profesor> Profesores { get; set; }
+        public string Profesor { get; set; }
+
     }
 }

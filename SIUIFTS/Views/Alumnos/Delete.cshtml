@@ -4,9 +4,11 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h2>Baja de alumno</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h4>Estás seguro de eliminar el alumno?</h4>
+<br />
+<br />
 <div>
     <h4>Alumno</h4>
     <hr />
@@ -24,7 +26,7 @@
             @Html.DisplayFor(model => model.Nombre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaDeInscripcion)
+            Fecha de inscripción
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaDeInscripcion)
@@ -33,7 +35,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="AlumnoID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
     </form>
 </div>

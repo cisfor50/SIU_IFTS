@@ -22,6 +22,6 @@ namespace SIUIFTS.Models
         //Nulleable porque puede que no se le haya asignado ninguna materia
         public int? Nota { get; set; }
         public Materia Materia { get; set; }
-        public Alumno Alumno { get; set; }
+        //public Alumno Alumno { get; set; }
     }
 }

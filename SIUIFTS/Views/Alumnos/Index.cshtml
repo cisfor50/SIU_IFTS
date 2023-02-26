@@ -4,16 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Listado de alumnos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Alta de nuevo Alumno</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AlumnoID)
+                DNI
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apellido)
@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaDeInscripcion)
+                Fecha de inscripción
             </th>
             <th></th>
         </tr>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.FechaDeInscripcion)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AlumnoID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AlumnoID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AlumnoID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.AlumnoID" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.AlumnoID" class="btn btn-info">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.AlumnoID"class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
 }

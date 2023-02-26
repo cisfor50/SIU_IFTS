@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SIUIFTS.Models;
 
 namespace SIUIFTS.Controllers
 {
+    [Authorize]
     public class MateriasController : Controller
     {
         private readonly SIUIFTSContext _context;
@@ -54,7 +56,7 @@ namespace SIUIFTS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MateriaID,NombreMateria")] Materia materia)
+        public async Task<IActionResult> Create([Bind("MateriaID,NombreMateria,Turno,Profesor")] Materia materia)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +88,7 @@ namespace SIUIFTS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MateriaID,NombreMateria")] Materia materia)
+        public async Task<IActionResult> Edit(int id, [Bind("MateriaID,NombreMateria,Turno,Profesor")] Materia materia)
         {
             if (id != materia.MateriaID)
             {
