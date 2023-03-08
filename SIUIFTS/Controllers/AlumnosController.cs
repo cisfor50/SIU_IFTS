@@ -23,9 +23,22 @@ namespace SIUIFTS.Controllers
 
         // GET: Alumnos
         //busco y muestro todos los alumnos que tenga guardados en la base
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _contexto.Alumnos.ToListAsync());
+            //Si el string no esta null o vacio busca nombre o apellido
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var alumnos = _contexto.Alumnos.Where(a => a.Apellido.Contains(searchString)
+                                       || a.Nombre.Contains(searchString)
+                                       || a.AlumnoID.ToString().Contains(searchString));
+
+                return View(alumnos.ToList());
+            }
+
+            else
+            {
+                return View(await _contexto.Alumnos.ToListAsync());
+            }            
         }
 
         // GET: Alumnos/Details/5

@@ -51,6 +51,7 @@ namespace SIUIFTS.Controllers
         public IActionResult Create()
         {
             ViewData["MateriaID"] = new SelectList(_contexto.Materias, "MateriaID", "MateriaID");
+            ViewData["AlumnoID"] = new SelectList(_contexto.Alumnos, "AlumnoID", "AlumnoID");
             return View();
         }
 
@@ -59,14 +60,26 @@ namespace SIUIFTS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("InscripcionID,MateriaID,AlumnoID,Nota")] Inscripcion inscripcion)
         {
-            if (ModelState.IsValid)
+            var materias = _contexto.Materias.Where(m => m.NombreMateria.Contains(inscripcion.Materia.NombreMateria)).FirstOrDefault();
+            inscripcion.MateriaID = materias.MateriaID;
+
+            try
             {
-                _contexto.Add(inscripcion);
-                await _contexto.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _contexto.Add(inscripcion);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["MateriaID"] = new SelectList(_contexto.Materias, "MateriaID", "MateriaID", inscripcion.MateriaID);
+                return View(inscripcion);
+
             }
-            ViewData["MateriaID"] = new SelectList(_contexto.Materias, "MateriaID", "MateriaID", inscripcion.MateriaID);
-            return View(inscripcion);
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(Index));
+                throw;
+            }
         }
 
         // GET: Inscripciones/Edit/5
