@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SIU - IFTS</title>
+    <title>@ViewData["Title"] - SIU - IFTS 2023</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -14,9 +14,9 @@
     <header>
         @if (SignInManager.IsSignedIn(User))
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
                 <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SIUIFTS</a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SIU - IFTS</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -47,26 +47,31 @@
         else
         {
 
-    <ul class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
-        @*<li class="">*@
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registrate</a>
-        @*</li>*@
-        @*<li class="">*@
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Iniciá sesión</a>
-        @*</li>*@
-    </ul>
-         }
-        </header>
+            <ul class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
+                @*<li class="">*@
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registrate</a>
+                @*</li>*@
+                @*<li class="">*@
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Iniciá sesión</a>
+                @*</li>*@
+            </ul>
+        }
+    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - SIU - IFTS
+    <footer>
+        <div class="footer-copyright text-center" style="padding-top: 5%">
+            <hr />
+            <a href="https://www.facebook.com/IFTS18" target="_blank"> <img src="https://cdn-icons-png.flaticon.com/512/739/739237.png" width="32" ; /></a>
+            <a href="https://www.ifts18.edu.ar/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1344/1344863.png" width="32" ; /></a>
+            <a href="https://www.github.com/cisfor50/SIU_IFTS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051377.png" width="32" ; /></a>
+            <p class="text-center">&copy; @DateTime.Now.Year - SIU IFTS</p>
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
