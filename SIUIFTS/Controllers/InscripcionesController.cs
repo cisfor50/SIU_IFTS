@@ -60,9 +60,6 @@ namespace SIUIFTS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("InscripcionID,MateriaID,AlumnoID,Nota")] Inscripcion inscripcion)
         {
-            var materias = _contexto.Materias.Where(m => m.NombreMateria.Contains(inscripcion.Materia.NombreMateria)).FirstOrDefault();
-            inscripcion.MateriaID = materias.MateriaID;
-
             try
             {
                 if (ModelState.IsValid)
